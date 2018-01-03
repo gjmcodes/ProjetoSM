@@ -8,9 +8,9 @@ namespace Assets.Scripts.Constants
     public class ObjectsPathConstants
     {
         public const string actionManager = "ActionManager/";
-        public const string combatManager = "CombatManager";
+        public const string combatManager = "CombatManager/";
         public const string combatController = "CombatManager/";
-        public const string combatAnimationsController = "Renderer/Body/WeaponHolder";
+        public const string combatAnimationsController = "Renderer/Body/WeaponHolder/";
 
 
     }

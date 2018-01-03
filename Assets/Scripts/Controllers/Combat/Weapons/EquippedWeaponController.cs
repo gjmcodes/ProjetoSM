@@ -5,6 +5,7 @@ namespace Assets.Scripts.Controllers.Combat
 {
     public class EquippedWeaponController : MonoBehaviour
     {
+        [SerializeField]
         BaseWeaponController weaponController;
 
         void Start()

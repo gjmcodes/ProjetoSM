@@ -3,8 +3,11 @@ using Assets.Scripts.Observers;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-
+/// <summary>
+/// Notes: IActionLIsteners must be assigned through the editor
+/// </summary>
 namespace Assets.Scripts.Managers
 {
     public class ActionManager : MonoBehaviour
@@ -13,27 +16,26 @@ namespace Assets.Scripts.Managers
 
         IActionListener[] _actionListeners;
 
-        [SerializeField]
-        List<Transform> _actionListenersTransforms;
-
         private void Start()
         {
-            if (_actionListenersTransforms == null || _actionListenersTransforms.Count == 0)
-                return;
+            ActionViabilityObserver = new ActionViabilityObserver(_actionListeners);
+        }
 
-            _actionListeners = new IActionListener[_actionListenersTransforms.Count];
-
-            for (int i = 0; i < _actionListenersTransforms.Count; i++)
+        public void Subscribe(IActionListener actionListener)
+        {
+            int length;
+            if(_actionListeners == null)
             {
-                var actionListener = _actionListenersTransforms[i].GetComponent<IActionListener>();
-
-                if (actionListener == null)
-                    throw new Exception("All Action Listeners Transforms must implement IActionListener interface");
-
-                _actionListeners[i] = actionListener;
+                length = 1;
+            }
+            else
+            {
+                length = _actionListeners.Length + 1;
             }
 
-            ActionViabilityObserver = new ActionViabilityObserver(_actionListeners);
+            _actionListeners = new IActionListener[length];
+
+            _actionListeners[length-1] = actionListener;
         }
     }
 }

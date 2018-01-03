@@ -1,32 +1,26 @@
-﻿using Assets.Scripts.Constants;
-using Assets.Scripts.Interfaces.Actions;
-using Assets.Scripts.Interfaces.Observers.Combat;
+﻿using Assets.Scripts.Interfaces.Actions;
 using Assets.Scripts.Managers;
+using Assets.Scripts.Managers.Combat;
 using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Controllers.Combat
 {
-    public class BaseCombatController : MonoBehaviour, IAttackNotifiable, IActionListener
+    public abstract class BaseCombatController : IActionCaster
     {
-        [SerializeField]
-        AttackObserverController _attackObserverController;
+        protected readonly ActionManager _actionManager;
+        protected readonly CombatManager _combatManager;
 
-        [SerializeField]
-        protected ActionManager _actionManager;
-
-        protected virtual void Start()
+        public BaseCombatController(
+            ActionManager actionManager,
+            CombatManager combatManager)
         {
-            _actionManager = this.transform.parent
-                .Find(ObjectsPathConstants.actionManager)
-                .GetComponent<ActionManager>();
+            _actionManager = actionManager;
+            _combatManager = combatManager;
 
-
-            _attackObserverController = GetComponent<AttackObserverController>();
-            _attackObserverController.Subscribe(this);
         }
 
-        protected void CastAction(Action actionToCast)
+        public void CastAction(Action actionToCast)
         {
             if (!_actionManager.ActionViabilityObserver.CanCastAction())
             {
@@ -37,13 +31,5 @@ namespace Assets.Scripts.Controllers.Combat
             actionToCast.Invoke();
         }
 
-        public virtual void ReceiveNotification()
-        {
-        }
-
-        public virtual bool HasImpedingActionRunning()
-        {
-            return false;
-        }
     }
 }

@@ -1,31 +1,42 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Interfaces.Observers.Combat;
+using Assets.Scripts.Managers;
+using Assets.Scripts.Managers.Combat;
+using UnityEngine;
 
 namespace Assets.Scripts.Controllers.Combat
 {
-    public class DefenseController : BaseCombatController
+    public class DefenseController : BaseCombatController, IAttackReceivable
     {
-        [SerializeField]
+        public DefenseController(
+            ActionManager actionManager,
+            CombatManager combatManager
+            )
+            : base(actionManager, combatManager) { }
+
         bool _isDefending;
 
         public void CastDefense()
         {
-            CastAction(() =>
+            base.CastAction(() =>
             {
-                if (HasImpedingActionRunning())
-                    return;
-
                 _isDefending = true;
             });
         }
 
-        public override void ReceiveNotification()
+        public void ReleaseDefense()
         {
-            base.ReceiveNotification();
+            _isDefending = false;
         }
 
-        public override bool HasImpedingActionRunning()
+        public bool IsDefending()
         {
-            return !_isDefending;
+            return _isDefending;
+        }
+
+
+        public void ReceiveAttack()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4320843908927764}
   - component: {fileID: 114297609242423122}
-  - component: {fileID: 114875010164355288}
   - component: {fileID: 114540710029605026}
+  - component: {fileID: 114046098678654174}
   m_Layer: 0
   m_Name: CombatManager
   m_TagString: Untagged
@@ -128,6 +128,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 1, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114046098678654174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123146760434860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ec0d97ba3ae5445a8ea23b5ff154d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackObserverController: {fileID: 0}
+  _actionManager: {fileID: 0}
+  _equippedWeaponController: {fileID: 0}
+  _combatAnimationsController: {fileID: 0}
 --- !u!114 &114297609242423122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3acee7bce9aef4bb9d442b4577789b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponController: {fileID: 0}
 --- !u!114 &114675459875950416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,18 +178,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackObserverManager: {fileID: 0}
---- !u!114 &114875010164355288
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1123146760434860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1043eb0963ec9144f9a274b4f529f2d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _equippedWeaponController: {fileID: 0}
-  _attackObserverManager: {fileID: 0}
-  _currentWeaponController: {fileID: 0}
-  _combatAnimationsController: {fileID: 0}

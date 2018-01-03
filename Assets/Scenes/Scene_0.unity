@@ -422,7 +422,7 @@ Prefab:
         type: 2}
       propertyPath: _actionListenersTransforms.Array.data[0]
       value: 
-      objectReference: {fileID: 831366399}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 186002bfc0cade643a09001ce1a2787b, type: 2}
   m_IsPrefabParent: 0
@@ -648,6 +648,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcc2655dc4bc454fa432ad60745b9d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1148820456 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1123146760434860, guid: 31d68ce358bee854494bce94adb293fb,
+    type: 2}
+  m_PrefabInternal: {fileID: 2006981423}
+--- !u!114 &1148820457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148820456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ec0d97ba3ae5445a8ea23b5ff154d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackObserverController: {fileID: 0}
+  _actionManager: {fileID: 0}
+  _equippedWeaponController: {fileID: 0}
+  _combatAnimationsController: {fileID: 0}
 --- !u!1 &1226949339
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3116a3b951c368c4db17d65a405ad84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionListenersTransforms: []
 --- !u!33 &1846162363
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -964,7 +983,8 @@ Prefab:
       propertyPath: _isDefending
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114875010164355288, guid: 31d68ce358bee854494bce94adb293fb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 31d68ce358bee854494bce94adb293fb, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2038556502
@@ -1006,9 +1026,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114875010164355288, guid: 31d68ce358bee854494bce94adb293fb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 31d68ce358bee854494bce94adb293fb, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2038556503 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1123146760434860, guid: 31d68ce358bee854494bce94adb293fb,
+    type: 2}
+  m_PrefabInternal: {fileID: 2038556502}
+--- !u!114 &2038556504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2038556503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ec0d97ba3ae5445a8ea23b5ff154d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackObserverController: {fileID: 0}
+  _actionManager: {fileID: 0}
+  _equippedWeaponController: {fileID: 0}
+  _combatAnimationsController: {fileID: 0}
 --- !u!1 &2049927436
 GameObject:
   m_ObjectHideFlags: 0
