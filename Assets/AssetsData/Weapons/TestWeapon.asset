@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: TestWeapon
   m_EditorClassIdentifier: 
   description: A Sword!
+  gameObjectPrefab: {fileID: 0}
   duration: 100
-  weaponPrefab: {fileID: 1187930714121404, guid: 8b5093b246794ef40b5fd85bb71cb84e,
-    type: 2}
   minDamage: 20
   maxDamage: 50
+  primaryAttribute: {fileID: 11400000, guid: 0a847ff51f2073e48a3b2c7f2dac5508, type: 2}
   attackAnimation: {fileID: 7400000, guid: 03fddfa17f5d5a74d8032c1624190e0c, type: 2}

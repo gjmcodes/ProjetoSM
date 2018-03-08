@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.ScriptableObjects.Status;
+using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects.Items.Equippable.Weapons
 {
@@ -7,6 +8,8 @@ namespace Assets.Scripts.ScriptableObjects.Items.Equippable.Weapons
     {
         public float minDamage;
         public float maxDamage;
+
+        public Attribute primaryAttribute;
 
         public AnimationClip attackAnimation;
     }

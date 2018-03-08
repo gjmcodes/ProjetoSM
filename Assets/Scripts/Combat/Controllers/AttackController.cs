@@ -30,10 +30,24 @@ namespace Assets.Scripts.Combat.Controllers
         }
         public void HitAttack(GameObject targetHit)
         {
-            // get target status controller
+           var targetCombatManager = targetHit.GetComponentInChildren<CombatManager>();
 
-            // get equipped weapon damage
-            // _equippedWeaponManager.GetEquippedWeapon();
+            var attackerWeapon = _equippedWeaponManager.GetEquippedWeapon();
+            var attributeVal = _statusManager.GetValueByAttribute(attackerWeapon.primaryAttribute);
+
+            var damage = (Random.Range(attackerWeapon.minDamage, attackerWeapon.maxDamage) + attributeVal) / 2;
+
+            targetCombatManager.ReceiveAttack(damage);  
+        }
+
+        public bool ReceiveAttack(float rawDamage)
+        {
+            // Get armor resistance
+            // Get natural resistance
+
+            bool isAlive = _statusManager.ReduceLife(rawDamage) > 0;
+
+            return isAlive;
         }
     }
 }

@@ -83,6 +83,11 @@ namespace Assets.Scripts.Combat.Managers
 
             return _attackDependencies.Contains(component);
         }
+
+        public bool ReceiveAttack(float rawDamage)
+        {
+            return _attackController.ReceiveAttack(rawDamage);
+        }
         public BaseWeapon GetEquippedWeapon()
         {
             return _equippedWeaponManager.GetEquippedWeapon();

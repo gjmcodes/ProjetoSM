@@ -9,6 +9,8 @@ namespace Assets.Scripts.Combat
         [SerializeField]
         BaseWeapon _equippedWeapon;
 
+        [SerializeField]
+        BaseWeapon _defaultWeapon;
 
         // TODO 
         // Remover (usado somente para testes)
@@ -24,6 +26,9 @@ namespace Assets.Scripts.Combat
 
         public BaseWeapon GetEquippedWeapon()
         {
+            if (_equippedWeapon == null)
+                return _defaultWeapon;
+
             return _equippedWeapon;
         }
     }
