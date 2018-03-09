@@ -10,7 +10,13 @@ namespace Assets.Scripts.ScriptableObjects.Status
 
         protected virtual void OnEnable()
         {
-            value = maxValue;
+            SetInitialValue();
+        }
+
+        protected virtual void SetInitialValue()
+        {
+            if (value == 0)
+                value = maxValue / 3;
         }
     }
 }

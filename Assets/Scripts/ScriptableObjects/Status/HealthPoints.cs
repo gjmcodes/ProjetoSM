@@ -11,10 +11,6 @@ namespace Assets.Scripts.ScriptableObjects.Status
         protected override void OnEnable()
         {
             maxValue = attributesForMaxPoints.Sum(x => x.maxValue) / attributesForMaxPoints.Count();
-
-            value = maxValue / 3;
-
-            Debug.Log(value);
         }
     }
 }

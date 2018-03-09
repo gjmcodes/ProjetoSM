@@ -10,6 +10,10 @@ namespace Assets.Scripts.Status.Managers
         public Attribute intelligence;
         public HealthPoints healthPoints;
 
+        private void Start()
+        {
+            Debug.Log(healthPoints.value);
+        }
         public int GetValueByAttribute(Attribute attributeToCheck)
         {
 
