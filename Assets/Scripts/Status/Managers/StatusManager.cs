@@ -14,6 +14,7 @@ namespace Assets.Scripts.Status.Managers
         {
             Debug.Log(healthPoints.value);
         }
+
         public int GetValueByAttribute(Attribute attributeToCheck)
         {
 
@@ -39,8 +40,17 @@ namespace Assets.Scripts.Status.Managers
         public float ReduceLife(float amountToReduce)
         {
             healthPoints.value -= amountToReduce;
-            Debug.Log("Current life: " + healthPoints.value);   
+            Debug.Log("Current life: " + healthPoints.value);
+
+            if (healthPoints.value <= 0)
+                Die();
+
             return healthPoints.value;
+        }
+
+        public void Die()
+        {
+
         }
     }
 }
