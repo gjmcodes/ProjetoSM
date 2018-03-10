@@ -5,10 +5,11 @@ using Assets.Scripts.Status.Managers;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Assets.Scripts.Status.Interfaces;
 
 namespace Assets.Scripts.Combat.Managers
 {
-    public class CombatManager : MonoBehaviour
+    public class CombatManager : MonoBehaviour, IBusyConditioner
     {
         [SerializeField]
         AnimationsManager _animationsManager;
@@ -20,18 +21,21 @@ namespace Assets.Scripts.Combat.Managers
         StatusManager _statusManager;
 
         [SerializeField]
-        bool _isAttacking;
-        public bool IsAttacking { get { return _isAttacking; } set { _isAttacking = value; } }
+        BusyConditionManager _busyConditionManager;
 
         [SerializeField]
         List<MonoBehaviour> _attackDependencies;
         AttackController _attackController;
+        public AttackController AttackController { get { return _attackController; } }
 
         private void OnEnable()
         {
+            _busyConditionManager = GetComponent<BusyConditionManager>();
+            _busyConditionManager.SubscribeBusyConditioner(this);
+
             _equippedWeaponManager = GetComponent<EquippedWeaponManager>();
             _statusManager = GetComponent<StatusManager>();
-            _attackController = new AttackController(this, _statusManager, _equippedWeaponManager);
+            _attackController = new AttackController(_statusManager, _equippedWeaponManager);
             _animationsManager = GetComponent<AnimationsManager>();
         }
 
@@ -45,16 +49,16 @@ namespace Assets.Scripts.Combat.Managers
 
         private void FinishAttack()
         {
-            _isAttacking = false;
+            AttackController.SetIsAttacking(false);
             SetAttackDependenciesEnabled(isEnabled: false);
         }
 
         public void Attack()
         {
-            if (_isAttacking)
+            if (_busyConditionManager.IsBusy())
                 return;
 
-            _isAttacking = true;
+            AttackController.SetIsAttacking(true);
             SetAttackDependenciesEnabled(isEnabled: true);
 
             _animationsManager.PlayAttackAnimation(finishedAttackCallback: () => FinishAttack());
@@ -91,6 +95,11 @@ namespace Assets.Scripts.Combat.Managers
         public BaseWeapon GetEquippedWeapon()
         {
             return _equippedWeaponManager.GetEquippedWeapon();
+        }
+
+        public bool IsBusy()
+        {
+            return AttackController.IsAttacking();
         }
     }
 }

@@ -6,28 +6,34 @@ using UnityEngine;
 
 namespace Assets.Scripts.Combat.Controllers
 {
-    public class AttackController
+    public struct AttackController
     {
-        CombatManager _combatManager;
         StatusManager _statusManager;
         EquippedWeaponManager _equippedWeaponManager;
 
+        bool _isAttacking;
+        bool _isSufferingAttack;
+
         public AttackController(
-            CombatManager combatManager,
             StatusManager statusManager,
             EquippedWeaponManager equippedWeaponManager)
 
         {
-            _combatManager = combatManager;
             _statusManager = statusManager;
             _equippedWeaponManager = equippedWeaponManager;
+            _isAttacking = false;
+            _isSufferingAttack = false;
         }
 
         public bool WillHitAttack(GameObject target)
         {
+            _isSufferingAttack = true;
             //Check if target is defending
-            return true;
+            bool willhit = true;
+
+            return willhit;
         }
+
         public void HitAttack(GameObject targetHit)
         {
            var targetCombatManager = targetHit.GetComponentInChildren<CombatManager>();
@@ -48,6 +54,20 @@ namespace Assets.Scripts.Combat.Controllers
             bool isAlive = _statusManager.ReduceLife(rawDamage) > 0;
 
             return isAlive;
+        }
+
+        public bool IsAttacking()
+        {
+            return _isAttacking;
+        }
+
+        public bool IsSufferingAttack()
+        {
+            return _isSufferingAttack;
+        }
+        public void SetIsAttacking(bool value)
+        {
+            _isAttacking = value;
         }
     }
 }

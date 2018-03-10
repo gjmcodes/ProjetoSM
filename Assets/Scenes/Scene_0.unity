@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 372430865}
   - component: {fileID: 372430867}
   - component: {fileID: 372430868}
+  - component: {fileID: 372430869}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -236,7 +237,7 @@ MonoBehaviour:
   _animationsManager: {fileID: 0}
   _equippedWeaponManager: {fileID: 0}
   _statusManager: {fileID: 0}
-  _isAttacking: 0
+  _busyConditionManager: {fileID: 0}
   _attackDependencies: []
 --- !u!114 &372430868
 MonoBehaviour:
@@ -253,6 +254,17 @@ MonoBehaviour:
   dexterity: {fileID: 11400000, guid: af804e3ba7da96a4f89be049bcb5ea61, type: 2}
   intelligence: {fileID: 11400000, guid: a89f420e169a844488c445abc8470a6e, type: 2}
   healthPoints: {fileID: 11400000, guid: ca99317a3d51c974ead2f71ad70a3b9f, type: 2}
+--- !u!114 &372430869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372430863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb509f7a4f20714cb2784a0037b536e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &387731043
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +773,7 @@ GameObject:
   - component: {fileID: 2126488952}
   - component: {fileID: 2126488951}
   - component: {fileID: 2126488953}
+  - component: {fileID: 2126488954}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -824,5 +837,16 @@ MonoBehaviour:
   _animationsManager: {fileID: 0}
   _equippedWeaponManager: {fileID: 0}
   _statusManager: {fileID: 0}
-  _isAttacking: 0
+  _busyConditionManager: {fileID: 0}
   _attackDependencies: []
+--- !u!114 &2126488954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126488949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb509f7a4f20714cb2784a0037b536e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

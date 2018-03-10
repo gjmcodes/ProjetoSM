@@ -22,7 +22,7 @@ namespace Assets.Scripts.PlayerInputs
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (_combatManager.IsAttacking)
+                if (_combatManager.IsBusy())
                     return;
 
                 _combatManager.Attack();
