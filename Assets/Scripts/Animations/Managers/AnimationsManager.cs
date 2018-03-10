@@ -1,7 +1,5 @@
 ﻿using Assets.Scripts.Animations.Controllers;
 using System;
-using System.Collections;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Scripts.Animations.Managers
@@ -16,7 +14,7 @@ namespace Assets.Scripts.Animations.Managers
 
         private void OnEnable()
         {
-            _animator = transform.root.GetComponent<Animator>();
+            _animator = transform.root.GetComponentInChildren<Animator>();
             _attackAnimationController = new AttackAnimationController(_animator);
         }
 

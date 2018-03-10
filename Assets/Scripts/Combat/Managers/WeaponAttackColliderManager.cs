@@ -31,7 +31,7 @@ namespace Assets.Scripts.Combat.Managers
         {
             Debug.Log(other.gameObject.name);
             //check if collision was against targetable
-            _combatManager.HitAttack(other.gameObject);
+            _combatManager.HitAttack(other.transform.root.gameObject);
         }
 
         private void OnDisable()
